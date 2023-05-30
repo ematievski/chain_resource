@@ -23,6 +23,7 @@ class MainScreen extends StatelessWidget {
           SizedBox(height: 20),
           Container(
             height: 300,
+            width: MediaQuery.of(context).size.width - 30,
             child: const _ChainListWidget(),
           )
         ],
@@ -46,7 +47,7 @@ class _ChainListWidgetState extends State<_ChainListWidget> {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      itemCount: 5,
+      itemCount: 10,
       separatorBuilder: (BuildContext context, int index) {
         return _ChainListRowWidget(
           indexInList: index,
@@ -54,7 +55,9 @@ class _ChainListWidgetState extends State<_ChainListWidget> {
       },
       itemBuilder: (BuildContext context, int index) {
         return const Divider(
-          height: 1,
+          height: 10,
+          thickness: null,
+          color: Colors.white,
         );
       },
     );
@@ -68,9 +71,66 @@ class _ChainListRowWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text('текст'),
-      trailing: Icon(Icons.settings),
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25),
+        color: Color.fromARGB(255, 255, 255, 255),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 1,
+            blurRadius: 5,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      height: 50,
+      child: Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: Stack(children: [
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Color.fromARGB(255, 231, 240, 243),
+            ),
+          ),
+          Positioned(
+            top: 10,
+            left: 10,
+            child: Text(
+              'цепь 2',
+              style: TextStyle(
+                  fontSize: 18,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w500),
+            ),
+          ),
+          Positioned(
+            top: -4,
+            right: -11,
+            child: ElevatedButton(
+              onPressed: () {},
+              child: Icon(Icons.settings, color: Colors.black),
+              style: ElevatedButton.styleFrom(
+                shape: CircleBorder(),
+                padding: EdgeInsets.all(6),
+                backgroundColor: Colors.white, // <-- Button color
+                foregroundColor: Colors.blue, // <-- Splash color
+              ),
+            ),
+          ),
+        ]),
+      ),
+      //width: 80,
+      //width: MediaQuery.of(context).size.width - 25,
     );
   }
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   return ListTile(
+  //     title: Text('текст'),
+  //     trailing: Icon(Icons.settings),
+  //   );
+  // }
 }
