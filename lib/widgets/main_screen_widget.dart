@@ -4,6 +4,10 @@ import 'chain_bar_widget.dart';
 class MainScreen extends StatelessWidget {
   MainScreen({super.key});
 
+  void showForm(BuildContext context) {
+    Navigator.of(context).pushNamed('/main_screen/form');
+  }
+
   double x = 1.56;
 
   @override
@@ -26,7 +30,7 @@ class MainScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () => showForm(context),
       ),
     ));
   }
