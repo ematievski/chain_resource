@@ -1,9 +1,18 @@
+import 'package:chain_resource/domain/entity/chain.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 class ChainFormWidgetModel {
   var chainName = '';
-  void saveChain(BuildContext context) {
-    print(chainName);
+  void saveChain(BuildContext context) async {
+    if (chainName.isEmpty) return;
+    if (!Hive.isAdapterRegistered(1)) {
+      Hive.registerAdapter(ChainAdapter());
+    }
+    final box = await Hive.openBox<Chain>('chains_box');
+    final chain = Chain(name: chainName);
+    await box.add(chain);
+    Navigator.of(context).pop();
   }
 }
 

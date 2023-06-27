@@ -26,13 +26,13 @@ class _ChainBarWidgetState extends State<ChainBarWidget> {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25),
-        color: Color.fromARGB(255, 255, 255, 255),
+        color: const Color.fromARGB(255, 255, 255, 255),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 5,
             blurRadius: 7,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -45,7 +45,7 @@ class _ChainBarWidgetState extends State<ChainBarWidget> {
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: Color.fromARGB(255, 185, 238, 255),
+                color: const Color.fromARGB(255, 185, 238, 255),
               ),
             ),
             Padding(
@@ -57,16 +57,16 @@ class _ChainBarWidgetState extends State<ChainBarWidget> {
                     BoxDecoration(border: Border.all(color: Colors.red)), //123
                 child: radialPercentWidget(
                   percent: widget.x / 100,
-                  fillColor: Color.fromARGB(255, 185, 238, 255),
+                  fillColor: const Color.fromARGB(255, 185, 238, 255),
                   lineColor: Colors.blue,
-                  freeColor: Color.fromARGB(255, 255, 255, 255),
+                  freeColor: const Color.fromARGB(255, 255, 255, 255),
                   lineWidth: 8,
                   child: Padding(
                     padding: const EdgeInsets.all(5.5),
                     child: Center(
                         child: Text(
                       '${widget.x.toStringAsFixed(1)} %',
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 15,
                           fontFamily: 'Montserrat',
                           fontWeight: FontWeight.w600),
@@ -83,7 +83,7 @@ class _ChainBarWidgetState extends State<ChainBarWidget> {
                   height: 90,
                   decoration:
                       BoxDecoration(border: Border.all(color: Colors.green)),
-                  child: Center(
+                  child: const Center(
                       child: Text(
                     'Цепь_1',
                     style: TextStyle(
@@ -100,7 +100,7 @@ class _ChainBarWidgetState extends State<ChainBarWidget> {
                   height: 75,
                   decoration:
                       BoxDecoration(border: Border.all(color: Colors.blue)),
-                  child: Column(
+                  child: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
@@ -140,13 +140,13 @@ class _ChainBarWidgetState extends State<ChainBarWidget> {
                   _incrementCounter();
                   print(widget.x);
                 },
-                child: Icon(Icons.settings, color: Colors.black),
                 style: ElevatedButton.styleFrom(
-                  shape: CircleBorder(),
-                  padding: EdgeInsets.all(13),
+                  shape: const CircleBorder(),
+                  padding: const EdgeInsets.all(13),
                   backgroundColor: Colors.white, // <-- Button color
                   foregroundColor: Colors.blue, // <-- Splash color
                 ),
+                child: const Icon(Icons.settings, color: Colors.black),
               ),
             )
           ],
@@ -258,7 +258,7 @@ class myPainter extends CustomPainter {
   }
 
   Rect calculateArcsRect(Size size) {
-    final linesMargin = 3;
+    const linesMargin = 3;
     final offset = lineWidth / 2 + linesMargin;
     final arcRect = Offset(offset, offset) &
         Size(size.width - offset * 2, size.height - offset * 2);

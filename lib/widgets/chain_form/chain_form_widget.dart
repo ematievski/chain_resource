@@ -48,7 +48,7 @@ class _ChainFormWidgetBody extends StatelessWidget {
 }
 
 class _ChainNameWidget extends StatelessWidget {
-  const _ChainNameWidget({super.key});
+  const _ChainNameWidget();
 
   @override
   Widget build(BuildContext context) {

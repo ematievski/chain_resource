@@ -20,12 +20,12 @@ class MainScreen extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Center(
             child: ChainBarWidget(x: x),
           ),
-          SizedBox(height: 20),
-          _ChainListWidget(),
+          const SizedBox(height: 20),
+          const _ChainListWidget(),
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -37,22 +37,22 @@ class MainScreen extends StatelessWidget {
 }
 
 class _ChainListWidget extends StatefulWidget {
-  const _ChainListWidget({super.key});
+  const _ChainListWidget();
 
   @override
   State<_ChainListWidget> createState() => _ChainListWidgetState();
 }
 
 class _ChainListWidgetState extends State<_ChainListWidget> {
-  List<Widget> _listItems = [];
+  final List<Widget> _listItems = [];
 
   @override
   void initState() {
     super.initState();
 
     for (int i = 0; i < 8; i++) {
-      _listItems.add(_ChainListRowWidget(indexInList: 1));
-      SizedBox(height: 20);
+      _listItems.add(const _ChainListRowWidget(indexInList: 1));
+      const SizedBox(height: 20);
     }
   }
 
@@ -67,7 +67,7 @@ class _ChainListWidgetState extends State<_ChainListWidget> {
 class _ChainListRowWidget extends StatelessWidget {
   final int indexInList;
 
-  const _ChainListRowWidget({super.key, required this.indexInList});
+  const _ChainListRowWidget({required this.indexInList});
 
   @override
   Widget build(BuildContext context) {
@@ -76,13 +76,13 @@ class _ChainListRowWidget extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25),
-            color: Color.fromARGB(255, 255, 255, 255),
+            color: const Color.fromARGB(255, 255, 255, 255),
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.5),
                 spreadRadius: 1,
                 blurRadius: 5,
-                offset: Offset(0, 3),
+                offset: const Offset(0, 3),
               ),
             ],
           ),
@@ -94,10 +94,10 @@ class _ChainListRowWidget extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Color.fromARGB(255, 231, 240, 243),
+                  color: const Color.fromARGB(255, 231, 240, 243),
                 ),
               ),
-              Positioned(
+              const Positioned(
                 top: 10,
                 left: 10,
                 child: Text(
@@ -115,13 +115,13 @@ class _ChainListRowWidget extends StatelessWidget {
                   onPressed: () {
                     dialogMenu(context);
                   },
-                  child: Icon(Icons.settings, color: Colors.black),
                   style: ElevatedButton.styleFrom(
-                    shape: CircleBorder(),
-                    padding: EdgeInsets.all(6),
+                    shape: const CircleBorder(),
+                    padding: const EdgeInsets.all(6),
                     backgroundColor: Colors.white, // <-- Button color
                     foregroundColor: Colors.blue, // <-- Splash color
                   ),
+                  child: const Icon(Icons.settings, color: Colors.black),
                 ),
               ),
               Positioned(
@@ -141,7 +141,7 @@ class _ChainListRowWidget extends StatelessWidget {
           //width: 80,
           //width: MediaQuery.of(context).size.width - 25,
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
       ],
     );
   }
@@ -151,7 +151,7 @@ class _ChainListRowWidget extends StatelessWidget {
         context: context,
         builder: (BuildContext context) {
           return SimpleDialog(
-            title: Center(
+            title: const Center(
               child: Text(
                 "Выберите действие",
                 style: TextStyle(
@@ -171,8 +171,8 @@ class _ChainListRowWidget extends StatelessWidget {
                     border: Border.all(color: Colors.grey),
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  child: Center(
-                    child: const Text(
+                  child: const Center(
+                    child: Text(
                       "установить эту цепь",
                       style: TextStyle(
                           fontSize: 18,
@@ -192,8 +192,8 @@ class _ChainListRowWidget extends StatelessWidget {
                     border: Border.all(color: Colors.grey),
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  child: Center(
-                    child: const Text(
+                  child: const Center(
+                    child: Text(
                       "удалить цепь",
                       style: TextStyle(
                           fontSize: 18,
@@ -203,7 +203,7 @@ class _ChainListRowWidget extends StatelessWidget {
                   ),
                 ),
               )),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               SimpleDialogOption(
                   child: InkWell(
                 onTap: () => Navigator.pop(context),
@@ -214,8 +214,8 @@ class _ChainListRowWidget extends StatelessWidget {
                     border: Border.all(color: Colors.red),
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  child: Center(
-                    child: const Text(
+                  child: const Center(
+                    child: Text(
                       "назад",
                       style: TextStyle(
                           fontSize: 18,
